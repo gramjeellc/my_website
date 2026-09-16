@@ -1,0 +1,551 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="LLC profile and contact information.">
+
+    <title>GramJee LLC - Smarter Help using Smart Technology</title>
+
+    <style>
+        :root {
+            --primary: #6fa8dc;
+            --primary-dark: #4f86b5;
+            --accent: #b88a44;
+            --text: #1c2733;
+            --muted: #687585;
+            --light: #f5f7fa;
+            --white: #ffffff;
+            --border: #e3e8ee;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ------------------------------
+           HEADER
+        ------------------------------ */
+
+        header {
+            background: var(--primary);
+            color: var(--white);
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 50%;
+            right: -180px;
+            top: -160px;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 50%;
+            right: -80px;
+            bottom: -180px;
+        }
+
+        .nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 28px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .brand {
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .nav a {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.9rem;
+            margin-left: 28px;
+            transition: color 0.2s ease;
+        }
+
+        .nav a:hover {
+            color: var(--white);
+        }
+
+        .hero {
+            width: 88%;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            color: #17324d;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            max-width: 850px;
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 680px;
+            color:#17324D;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        /* ------------------------------
+           BUTTONS
+        ------------------------------ */
+
+        .buttons {
+            display: flex;
+            gap: 14px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 22px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .button-primary {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .button-primary:hover {
+            background: #222222;
+            transform: translateY(-2px);
+        }
+
+        .button-outline {
+            border: 1px solid rgba(255,255,255,0.35);
+            color: white;
+        }
+
+        .button-outline:hover {
+            background: rgba(255,255,255,0.08);
+        }
+
+        /* ------------------------------
+           CONTENT
+        ------------------------------ */
+
+        section {
+            padding: 100px 6%;
+        }
+
+        .content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            color: #263746;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 25px;
+        }
+
+        .purpose {
+            background: var(--light);
+        }
+
+        .purpose-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+        .purpose-text {
+            color: #17324d;
+            font-size: 1.08rem;
+            line-height: 1.9;
+        }
+
+        .purpose-text p + p {
+            margin-top: 18px;
+        }
+
+        /* ------------------------------
+           CONTACT
+        ------------------------------ */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 45px;
+        }
+
+        .contact-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 28px;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(20, 40, 60, 0.08);
+        }
+
+        .contact-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            color: #17324d;
+            font-size: 1.1rem;
+        }
+
+        .contact-card h3 {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #17324d;
+            margin-bottom: 7px;
+        }
+
+        .contact-card p,
+        .contact-card a {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #17324d;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent);
+        }
+
+        /* ------------------------------
+           FOOTER
+        ------------------------------ */
+
+        footer {
+            background: var(--primary-dark);
+            color: rgba(255,255,255,0.65);
+            padding: 35px 6%;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* ------------------------------
+           MOBILE
+        ------------------------------ */
+
+        @media (max-width: 750px) {
+
+            header {
+                min-height: 620px;
+            }
+
+            .nav {
+                padding: 22px 6%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .purpose-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==============================
+         HEADER / HERO
+    =============================== -->
+
+    <header>
+
+        <nav class="nav">
+
+            
+            <div class="brand">
+                Smart Technology, Smarter Help
+            </div>
+
+            <div class="nav-links">
+                <a href="#purpose">Purpose</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+        </nav>
+
+        <div class="hero">
+
+            <div class="eyebrow">
+                <strong>Making everyday life easier, safer, and more connected using right technology.</strong>
+            </div>
+
+            
+            <h1>
+                GramJee LLC
+            </h1>
+
+            
+            <p>
+                <strong>GramJee is a technology company that uses technology to resolve everyday problems. </strong>
+            </p>
+            <p>
+                Goal is to make life safer, easier, smarter, and more connected.
+                
+
+            </p>
+
+            <div class="buttons">
+
+                <a class="button button-primary"
+                   href="#contact">
+                    Get in Touch
+                </a>
+
+            
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==============================
+         PURPOSE
+    =============================== -->
+
+    <section class="purpose" id="purpose">
+
+        <div class="content">
+
+            <div class="purpose-grid">
+
+                <div>
+                    <div class="section-label">
+                        Purpose
+                    </div>
+
+                    <h2 class="section-title">
+                        What we do
+                    </h2>
+                </div>
+
+                <div class="purpose-text">
+
+                   
+                    <p>
+                        Tired of invasive, complicated tech? 
+                    </p>
+                    <p>
+                        <strong>We're different.</strong>
+                    </p>
+                    <p>
+                        GramJee believes your stays data yours. 
+                        Security first. Simplicity follows.
+                        We are a safety and security first technology company with the mission to make everyday life easier.
+                    </p>
+
+                    
+                    <p>
+                        Life with Technology should be effortless.
+                    </p>
+                    <p>
+                       <strong>Privacy by principle. Security by design. Simplicity by default.</strong> 
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         CONTACT
+    =============================== -->
+
+    <section id="contact">
+
+        <div class="content">
+
+            <div class="section-label">
+                Contact
+            </div>
+
+            <h2 class="section-title">
+                Let's connect.
+            </h2>
+
+            <div class="contact-grid">
+
+                
+
+                <!-- EMAIL -->
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        ✉
+                    </div>
+
+                    <h3>Email</h3>
+
+                    
+                    <a href="mailto:support@gramjee.com">
+                        support@gramjee.com
+                    </a>
+
+                </div>
+
+
+                
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         FOOTER
+    =============================== -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div>
+                © 2026 <strong>GramJee LLC</strong>
+            </div>
+
+            <div>
+                support@gramjee.com
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
+```
